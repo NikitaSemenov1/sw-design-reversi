@@ -10,6 +10,9 @@ import reversi.entities.Move;
 import reversi.enums.Color;
 import reversi.board.Board;
 
+/**
+ * Class interacting with board
+ */
 public class Controller {
     private final Stack<Move> moveStack = new Stack<>();
 

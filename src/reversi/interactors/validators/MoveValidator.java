@@ -6,6 +6,9 @@ import reversi.entities.Coordinate;
 
 import java.util.HashSet;
 
+/**
+ * Class validating move command input. Implements Validator interface.
+ */
 public class MoveValidator implements Validator {
     HashSet<Coordinate> possibleMoves;
     public MoveValidator(HashSet<Coordinate> possibleMoves) {

@@ -2,6 +2,9 @@ package reversi.entities;
 
 import reversi.Config;
 
+/**
+ * Store coordinates of the square
+ */
 public class Coordinate {
     public final int x, y;
     public Coordinate(int x, int y) {

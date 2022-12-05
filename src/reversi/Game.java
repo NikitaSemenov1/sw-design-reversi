@@ -5,6 +5,9 @@ import reversi.controller.ControllerSingleton;
 import reversi.entities.Coordinate;
 import reversi.players.Player;
 
+/**
+ * Class implementing single game logic
+ */
 public class Game {
     private final Controller controller = ControllerSingleton.getInstance();
     private Player player1, player2;
@@ -15,6 +18,9 @@ public class Game {
         this.player2 = player2;
     }
 
+    /**
+     * Whole game. Move sequence logic
+     */
     void start() {
         while (controller.hasPossibleMove(player1.color) || controller.hasPossibleMove(player2.color)) {
             if (controller.hasPossibleMove(player1.color)) {

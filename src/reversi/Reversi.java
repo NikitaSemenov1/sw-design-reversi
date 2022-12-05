@@ -8,8 +8,14 @@ import reversi.players.Computer;
 import reversi.players.Human;
 import reversi.players.Player;
 
+/**
+ * Class implementing single session logic
+ */
 public class Reversi {
 
+    /**
+     * Whole session. GameMode choosing logic.
+     */
     public static void start() {
         Game game = new Game();
 

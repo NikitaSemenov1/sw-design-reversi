@@ -9,6 +9,9 @@ import reversi.enums.Color;
 
 import java.util.ArrayList;
 
+/**
+ * Class estimating value of the move. Implements Estimator interface
+ */
 public class WeakEstimator implements Estimator {
 
     private final Board board = BoardSingleton.getInstance();

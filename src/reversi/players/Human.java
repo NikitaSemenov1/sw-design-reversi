@@ -7,6 +7,9 @@ import reversi.interactors.GameInteractorSingleton;
 
 import java.util.HashSet;
 
+/**
+ * Class implementing human behaviour
+ */
 public class Human extends Player {
     public Human(Color color, String name) {
         super(color, name);

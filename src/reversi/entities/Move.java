@@ -4,6 +4,9 @@ import reversi.enums.Color;
 
 import java.util.ArrayList;
 
+/**
+ * Class storing major coordinate, player color and ArrayList of minorCoordinates of the Move
+ */
 public class Move {
     public final Color color;
     public final Coordinate majorCoordinate;

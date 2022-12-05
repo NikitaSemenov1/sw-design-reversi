@@ -9,6 +9,9 @@ import reversi.players.estimators.WeakEstimator;
 
 import java.util.HashSet;
 
+/**
+ * Class implementing Computer behavior
+ */
 public class Computer extends Player {
     private final Estimator estimator = new WeakEstimator();
     public Computer(Color color, String name) {
