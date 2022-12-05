@@ -24,4 +24,9 @@ public class MenuInteractorStrings {
                     """
                     Winner: %s
                     """;
+
+    public static final String BEST_SCORE_VS_COMPUTER =
+            """
+            Your best score vs Computer is %d. Wins: %d.
+            """;
 }

@@ -7,8 +7,6 @@ import reversi.interactors.validators.GameModeValidator;
 import reversi.interactors.validators.Validator;
 import reversi.players.Player;
 
-import java.util.Scanner;
-
 public class MenuInteractor {
     public static GameMode enterMode() {
         System.out.print(MenuInteractorStrings.ENTER_MODE);
@@ -32,12 +30,16 @@ public class MenuInteractor {
         int whiteScore = BoardSingleton.getInstance().getSquareNumber(Color.WHITE);
         int blackScore = BoardSingleton.getInstance().getSquareNumber(Color.BLACK);
 
-        System.out.print(String.format(
-                MenuInteractorStrings.RESULT, whitePlayer.name, whiteScore, blackPlayer.name, blackScore)
-        );
-        System.out.print(String.format(
+        System.out.printf(
+                MenuInteractorStrings.RESULT, whitePlayer.name, whiteScore, blackPlayer.name, blackScore);
+        System.out.printf(
                 MenuInteractorStrings.WINNER, (whitePlayer == blackPlayer ? "Tie" :
-                        (whiteScore > blackScore ? whitePlayer.name : blackPlayer.name)))
+                        (whiteScore > blackScore ? whitePlayer.name : blackPlayer.name)));
+    }
+
+    public static void printBestScoreVsComputer(int bestScoreVsComputer, int winsVsComputer) {
+        System.out.printf(
+                MenuInteractorStrings.BEST_SCORE_VS_COMPUTER, bestScoreVsComputer, winsVsComputer
         );
     }
 }

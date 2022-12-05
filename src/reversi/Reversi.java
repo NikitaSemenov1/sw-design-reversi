@@ -1,5 +1,6 @@
 package reversi;
 
+import reversi.board.BoardSingleton;
 import reversi.enums.Color;
 import reversi.enums.GameMode;
 import reversi.interactors.MenuInteractor;
@@ -11,9 +12,13 @@ public class Reversi {
 
     public static void start() {
         Game game = new Game();
+
+        int bestScoreVsComputer = 0, winsVsComputer = 0;
+
         while(true) {
             GameMode mode = MenuInteractor.enterMode();
             if (mode == null) {
+                MenuInteractor.printBestScoreVsComputer(bestScoreVsComputer, winsVsComputer);
                 break;
             }
             Player whitePlayer, blackPlayer;
@@ -29,6 +34,17 @@ public class Reversi {
                     blackPlayer
             );
             game.start();
+
+            if (mode == GameMode.VS_COMPUTER) {
+                int playerScore = BoardSingleton.getInstance().getSquareNumber(Color.WHITE);
+                int computerScore = BoardSingleton.getInstance().getSquareNumber(Color.BLACK);
+
+                bestScoreVsComputer = Math.max(bestScoreVsComputer, playerScore);
+
+                if (computerScore < playerScore) {
+                    winsVsComputer++;
+                }
+            }
             MenuInteractor.printResult(whitePlayer, blackPlayer);
         }
     }
