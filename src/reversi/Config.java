@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Config {
-    public static final int BOARD_SIZE = 3;
+    public static final int BOARD_SIZE = 8;
     public static final ArrayList<Square> INITIAL_SQUARES = new ArrayList<>(Arrays.asList(
             new Square(new Coordinate(BOARD_SIZE / 2 - 1, BOARD_SIZE / 2 - 1), Color.WHITE),
             new Square(new Coordinate(BOARD_SIZE / 2, BOARD_SIZE / 2), Color.WHITE),

@@ -73,9 +73,13 @@ public class Board {
         return field[row][col].color;
     }
 
+    private int getD(int major, int minor) {
+        return major == minor ? 0 : (minor - major) / Math.abs(minor - major);
+    }
+
     void reverseBetween(Coordinate majorCoordinate, Coordinate minorCoordinate) {
-        int dx = (majorCoordinate.x == minorCoordinate.x ? 0 : (minorCoordinate.x - majorCoordinate.x) / Math.abs(minorCoordinate.x - majorCoordinate.x));
-        int dy = (majorCoordinate.y == minorCoordinate.y ? 0 : (minorCoordinate.y - majorCoordinate.y) / Math.abs(minorCoordinate.y - majorCoordinate.y));
+        int dx = getD(majorCoordinate.x, minorCoordinate.x);
+        int dy = getD(majorCoordinate.y, minorCoordinate.y);
         for (int x = majorCoordinate.x + dx, y = majorCoordinate.y + dy; x != minorCoordinate.x || y != minorCoordinate.y; x += dx, y += dy) {
             field[x][y].reverseColor();
         }
@@ -92,7 +96,7 @@ public class Board {
 
         field[coordinate.x][coordinate.y].color = color;
 
-        reverse(move.majorCoordinate, move.minorCoordinate);
+        reverse(move.majorCoordinate, move.minorCoordinates);
 
         return move;
     }
@@ -100,7 +104,7 @@ public class Board {
     public void retract(Move move) {
         field[move.majorCoordinate.x][move.majorCoordinate.y].color = Color.NONE;
 
-        reverse(move.majorCoordinate, move.minorCoordinate);
+        reverse(move.majorCoordinate, move.minorCoordinates);
     }
 
     public int getSquareNumber(Color color) {
@@ -113,5 +117,15 @@ public class Board {
             }
         }
         return squareNumber;
+    }
+
+    public ArrayList<Coordinate> getLockedCoordinates(Coordinate majorCoordinate, Coordinate minorCoordinate) {
+        ArrayList<Coordinate> lockedCoordinates = new ArrayList<>();
+        int dx = getD(majorCoordinate.x, minorCoordinate.x);
+        int dy = getD(majorCoordinate.y, minorCoordinate.y);
+        for (int x = majorCoordinate.x + dx, y = majorCoordinate.y + dy; x != minorCoordinate.x || y != minorCoordinate.y; x += dx, y += dy) {
+            lockedCoordinates.add(field[x][y].coordinate);
+        }
+        return lockedCoordinates;
     }
 }

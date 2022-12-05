@@ -22,9 +22,10 @@ public class MenuInteractor {
 
         if (MenuInteractorStrings.VS_COMPUTER.equals(input)) {
             return GameMode.VS_COMPUTER;
-        } else {
+        } else if (MenuInteractorStrings.VS_HUMAN.equals(input)) {
             return GameMode.VS_HUMAN;
         }
+        return null;
     }
 
     public static void printResult(Player whitePlayer, Player blackPlayer) {

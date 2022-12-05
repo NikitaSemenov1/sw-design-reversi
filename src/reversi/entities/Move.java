@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Move {
     public final Color color;
     public final Coordinate majorCoordinate;
-    public final ArrayList<Coordinate> minorCoordinate;
+    public final ArrayList<Coordinate> minorCoordinates;
 
     public Move(Color color, Coordinate majorCoordinate, ArrayList<Coordinate> minorCoordinate) {
         this.color = color;
         this.majorCoordinate = majorCoordinate;
-        this.minorCoordinate = minorCoordinate;
+        this.minorCoordinates = minorCoordinate;
     }
 }
